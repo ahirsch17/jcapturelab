@@ -19,8 +19,12 @@ export const gradPackages: ServicePackage[] = [
     id: "grad-mini",
     title: "Grad mini",
     blurb:
-      "Quick cap and gown or campus portraits when you mostly need a few strong shots.",
-    includes: ["About 30 minutes", "1 location on or near campus", "Gallery of edited highlights"],
+      "Cap and gown or campus portraits when you only need a tight set of shots. This rate applies when you can give at least two possible locations up front and about an hour for the session.",
+    includes: [
+      "About 1 hour",
+      "At least 2 location options from you when you book (we confirm one that works)",
+      "Gallery of edited highlights",
+    ],
     price: "From $75",
     rateNote: "Intro rate",
   },
