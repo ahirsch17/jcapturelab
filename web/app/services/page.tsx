@@ -57,15 +57,13 @@ export default function ServicesPage() {
           Typical coverage: {serviceAreasDisplay}.
         </p>
         <div className="mt-6 rounded-2xl border border-[var(--accent)]/20 bg-[var(--accent)]/5 px-5 py-4 text-sm leading-relaxed text-[var(--foreground)] sm:px-6">
-          <p className="font-semibold text-[var(--accent)]">Portfolio building pricing</p>
+          <p className="font-semibold text-[var(--accent)]">Current rates</p>
           <p className="mt-2 text-[var(--foreground-muted)]">{portfolioPricingIntro}</p>
         </div>
 
         <p className="mt-6 text-sm leading-relaxed text-[var(--foreground-muted)] sm:text-base">
-          The blocks below are ready made starting points, especially during grad and prom season.
-          Rates move toward full pricing as the calendar fills. If you need something that is not
-          listed (couples, headshots, an event, a random concept), still send a booking request or DM
-          and we will sort time and a fair number for what you have in mind.
+          The packages below are starting points. If you need something that is not listed, send a
+          booking request or DM and we will work out timing and a fair rate.
         </p>
 
         <section className="mt-14">

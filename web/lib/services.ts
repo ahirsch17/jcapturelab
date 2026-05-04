@@ -12,7 +12,7 @@ export const serviceAreasDisplay =
   "Radford, Roanoke, Blacksburg, Christiansburg, Martinsville, and nearby towns";
 
 export const portfolioPricingIntro =
-  "Intro pricing while the portfolio grows: you save compared with what full rate packages will be later. A few favorite images may appear on social or in the gallery only with your clear okay. That is discussed and agreed before the shoot.";
+  "Rates here are set below typical full package pricing. Any use of your images on social or in the gallery happens only with your clear okay, agreed before the shoot.";
 
 export const gradPackages: ServicePackage[] = [
   {
@@ -22,7 +22,7 @@ export const gradPackages: ServicePackage[] = [
       "Quick cap and gown or campus portraits when you mostly need a few strong shots.",
     includes: ["About 30 minutes", "1 location on or near campus", "Gallery of edited highlights"],
     price: "From $75",
-    rateNote: "Portfolio building rate",
+    rateNote: "Intro rate",
   },
   {
     id: "grad-standard",
@@ -35,7 +35,7 @@ export const gradPackages: ServicePackage[] = [
       "A few cap and gown plus casual looks",
     ],
     price: "From $125",
-    rateNote: "Portfolio building rate",
+    rateNote: "Intro rate",
   },
   {
     id: "grad-group",
@@ -44,7 +44,7 @@ export const gradPackages: ServicePackage[] = [
       "Small groups (roommates, clubs, teams) who want coordinated photos the same day.",
     includes: ["Shared session block", "Mix of group and individual frames", "Coordinated schedule"],
     price: "From $175",
-    rateNote: "Portfolio building rate, split by group",
+    rateNote: "Intro rate, split by group",
   },
 ];
 
@@ -56,7 +56,7 @@ export const promPackages: ServicePackage[] = [
       "Individual portraits before the dance: outfit detail, portraits, quick location set.",
     includes: ["Focused solo coverage", "Location agreed in advance", "Edited highlights"],
     price: "From $85",
-    rateNote: "Portfolio building rate",
+    rateNote: "Intro rate",
   },
   {
     id: "prom-couple",
@@ -64,7 +64,7 @@ export const promPackages: ServicePackage[] = [
     blurb: "You and your date: coordinated poses, candids, and a few detail shots.",
     includes: ["Couple forward posing", "Optional quick solo add ons", "Edited highlights"],
     price: "From $130",
-    rateNote: "Portfolio building rate",
+    rateNote: "Intro rate",
   },
 ];
 

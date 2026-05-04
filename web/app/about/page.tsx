@@ -20,16 +20,10 @@ export default function AboutPage() {
           </h1>
           <div className="mt-8 max-w-none space-y-4 text-[15px] leading-relaxed text-[var(--foreground-muted)]">
             <p>
-              jcapturelab leans into grad and prom while the season is busy, but other shoots are
-              welcome too: couples, headshots, small events, or an idea you want to try. Say what
-              you want when you reach out. Sessions stay relaxed and directed so you do not feel
-              stuck in stiff poses unless that is the vibe you want.
-            </p>
-            <p>
-              The brand is still new and the portfolio is growing, which keeps intro rates friendly
-              while the work catches up. Pace on set stays calm, with attention to light and real
-              expressions over a long resume. If you are camera shy, say so: there is time to warm
-              up and still leave with keepers.
+              All shoots are welcome: couples, headshots, small events, or an idea you want to try.
+              Say what you want when you reach out. Sessions stay relaxed and directed so you do not
+              feel stuck in stiff poses unless that is the vibe you want. If you are camera shy, say
+              so: there is room to warm up.
             </p>
             <p>
               Based in Southwest Virginia, regularly serving{" "}
