@@ -8,6 +8,10 @@ type Body = {
   sessionType?: string;
   date?: string;
   selectedTime?: string;
+  townArea?: string;
+  shootSpotIdeas?: string;
+  alternateDate?: string;
+  alternateAvailability?: string;
   firstName?: string;
   lastName?: string;
   email?: string;
@@ -43,6 +47,10 @@ export async function POST(request: Request) {
   const sessionType = body.sessionType?.trim() ?? "";
   const date = body.date?.trim() ?? "";
   const selectedTime = body.selectedTime?.trim() ?? "";
+  const townArea = body.townArea?.trim() ?? "";
+  const shootSpotIdeas = body.shootSpotIdeas?.trim() ?? "";
+  const alternateDate = body.alternateDate?.trim() ?? "";
+  const alternateAvailability = body.alternateAvailability?.trim() ?? "";
   const firstName = body.firstName?.trim() ?? "";
   const lastName = body.lastName?.trim() ?? "";
   const email = body.email?.trim() ?? "";
@@ -52,7 +60,13 @@ export async function POST(request: Request) {
   if (!allowedSessionTypes.has(sessionType)) {
     return NextResponse.json({ error: "Choose a valid session type." }, { status: 400 });
   }
-  if (!isNonEmpty(date) || !isNonEmpty(selectedTime) || !isNonEmpty(firstName) || !isNonEmpty(lastName)) {
+  if (
+    !isNonEmpty(date) ||
+    !isNonEmpty(selectedTime) ||
+    !isNonEmpty(firstName) ||
+    !isNonEmpty(lastName) ||
+    !isNonEmpty(townArea)
+  ) {
     return NextResponse.json({ error: "Please fill in every required field." }, { status: 400 });
   }
   if (!emailOk(email)) {
@@ -60,39 +74,37 @@ export async function POST(request: Request) {
   }
 
   const fullName = `${firstName} ${lastName}`.trim();
-  const ownerText = [
-    "New booking request from jcapturelab.com",
-    "",
+
+  const detailLines = [
     `Session type: ${sessionType}`,
+    `Town or area: ${townArea}`,
+    shootSpotIdeas ? `Shoot location ideas: ${shootSpotIdeas}` : null,
     `Preferred date: ${date}`,
     `Preferred time: ${selectedTime}`,
+    alternateDate ? `Backup date: ${alternateDate}` : null,
+    alternateAvailability ? `Backup times / availability: ${alternateAvailability}` : null,
     `Name: ${fullName}`,
     `Email: ${email}`,
     phone ? `Phone: ${phone}` : null,
-    notes ? `Notes: ${notes}` : null,
-  ]
-    .filter(Boolean)
-    .join("\n");
+    notes ? `Other notes: ${notes}` : null,
+  ].filter(Boolean);
 
-  const customerText = [
+  const ownerText = ["New booking request from jcapturelab.com", "", ...detailLines].join("\n");
+
+  const customerLines = [
     `Hi ${firstName},`,
     "",
     "Thanks for reaching out to jcapturelab. We received your booking request and will reply soon to confirm details.",
     "",
     "Here is what you sent:",
     "",
-    `Session type: ${sessionType}`,
-    `Preferred date: ${date}`,
-    `Preferred time: ${selectedTime}`,
-    phone ? `Phone: ${phone}` : null,
-    notes ? `Notes: ${notes}` : null,
+    ...detailLines,
     "",
     "If anything looks wrong, reply to this email or message @jcapturelab on Instagram.",
     "",
     "jcapturelab",
-  ]
-    .filter(Boolean)
-    .join("\n");
+  ];
+  const customerText = customerLines.join("\n");
 
   const resend = new Resend(key);
 
@@ -101,7 +113,7 @@ export async function POST(request: Request) {
       from,
       to: [to],
       replyTo: email,
-      subject: `Booking request: ${sessionType} (${date})`,
+      subject: `Booking request: ${sessionType} (${townArea}, ${date})`,
       text: ownerText,
     }),
     resend.emails.send({

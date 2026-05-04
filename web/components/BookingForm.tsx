@@ -27,44 +27,63 @@ function maxISODate(): string {
   return d.toISOString().slice(0, 10);
 }
 
-function openMailto(params: {
+type FormPayload = {
   sessionType: string;
+  townArea: string;
+  shootSpotIdeas: string;
   date: string;
   selectedTime: string;
+  alternateDate: string;
+  alternateAvailability: string;
   firstName: string;
   lastName: string;
   email: string;
   phone: string;
   notes: string;
-}) {
+};
+
+function openMailto(params: FormPayload) {
   const {
     sessionType,
+    townArea,
+    shootSpotIdeas,
     date,
     selectedTime,
+    alternateDate,
+    alternateAvailability,
     firstName,
     lastName,
     email,
     phone,
     notes,
   } = params;
-  const subject = encodeURIComponent(`jcapturelab: ${sessionType} (${date})`);
+  const subject = encodeURIComponent(`jcapturelab: ${sessionType} (${townArea}, ${date})`);
   const lines = [
     `Session type: ${sessionType}`,
+    `Town or area: ${townArea}`,
     `Preferred date: ${date}`,
     `Preferred time: ${selectedTime}`,
-    `Name: ${firstName} ${lastName}`,
-    `Your email: ${email}`,
   ];
+  if (shootSpotIdeas.trim()) lines.push(`Shoot location ideas: ${shootSpotIdeas.trim()}`);
+  if (alternateDate.trim()) lines.push(`Backup date: ${alternateDate.trim()}`);
+  if (alternateAvailability.trim()) {
+    lines.push(`Backup times / availability: ${alternateAvailability.trim()}`);
+  }
+  lines.push(`Name: ${firstName} ${lastName}`, `Your email: ${email}`);
   if (phone.trim()) lines.push(`Phone: ${phone.trim()}`);
-  if (notes.trim()) lines.push(`Notes: ${notes.trim()}`);
+  if (notes.trim()) lines.push(`Other notes: ${notes.trim()}`);
   const body = encodeURIComponent(lines.join("\n"));
   window.location.href = `mailto:${bookingFallbackEmail}?subject=${subject}&body=${body}`;
 }
 
 export function BookingForm() {
-  const [sessionType, setSessionType] = useState<string>("");
+  const [sessionType, setSessionType] = useState("");
+  const [townArea, setTownArea] = useState("");
+  const [shootSpotIdeas, setShootSpotIdeas] = useState("");
   const [date, setDate] = useState("");
   const [selectedTime, setSelectedTime] = useState<string>("");
+  const [alternateDate, setAlternateDate] = useState("");
+  const [alternateAvailability, setAlternateAvailability] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -74,21 +93,48 @@ export function BookingForm() {
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
+  function resetForm() {
+    setSessionType("");
+    setTownArea("");
+    setShootSpotIdeas("");
+    setDate("");
+    setSelectedTime("");
+    setAlternateDate("");
+    setAlternateAvailability("");
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPhone("");
+    setNotes("");
+  }
+
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus("idle");
     setMessage("");
 
-    if (!sessionType || !date || !selectedTime || !firstName || !lastName || !email) {
+    if (
+      !sessionType ||
+      !townArea.trim() ||
+      !date ||
+      !selectedTime ||
+      !firstName ||
+      !lastName ||
+      !email
+    ) {
       setStatus("error");
       setMessage("Please fill in every required field.");
       return;
     }
 
-    const payload = {
+    const payload: FormPayload = {
       sessionType,
+      townArea: townArea.trim(),
+      shootSpotIdeas,
       date,
       selectedTime,
+      alternateDate,
+      alternateAvailability,
       firstName,
       lastName,
       email,
@@ -113,14 +159,7 @@ export function BookingForm() {
         setMessage(
           "Request sent. Check your inbox for a short confirmation. We will follow up soon to finalize your session.",
         );
-        setSessionType("");
-        setDate("");
-        setSelectedTime("");
-        setFirstName("");
-        setLastName("");
-        setEmail("");
-        setPhone("");
-        setNotes("");
+        resetForm();
         setSubmitting(false);
         return;
       }
@@ -131,14 +170,7 @@ export function BookingForm() {
         setMessage(
           `If your email app opened, send the message to finish your request. If nothing opened, email ${bookingFallbackEmail} with the same details, or DM @jcapturelab on Instagram.`,
         );
-        setSessionType("");
-        setDate("");
-        setSelectedTime("");
-        setFirstName("");
-        setLastName("");
-        setEmail("");
-        setPhone("");
-        setNotes("");
+        resetForm();
         setSubmitting(false);
         return;
       }
@@ -185,6 +217,40 @@ export function BookingForm() {
       </div>
 
       <div>
+        <label htmlFor="townArea" className="label">
+          Your town or area
+        </label>
+        <input
+          id="townArea"
+          type="text"
+          required
+          value={townArea}
+          onChange={(e) => setTownArea(e.target.value)}
+          className="input"
+          placeholder="Example: Blacksburg, Martinsville, Roanoke"
+          autoComplete="address-level2"
+        />
+        <p className="mt-1 text-xs text-[var(--foreground-muted)]">
+          So we can plan travel and timing. Use the city or town you will be coming from.
+        </p>
+      </div>
+
+      <div>
+        <label htmlFor="shootSpotIdeas" className="label">
+          Where you want to shoot{" "}
+          <span className="font-normal text-[var(--foreground-muted)]">(optional)</span>
+        </label>
+        <textarea
+          id="shootSpotIdeas"
+          rows={2}
+          value={shootSpotIdeas}
+          onChange={(e) => setShootSpotIdeas(e.target.value)}
+          className="input resize-y"
+          placeholder="Park, campus spot, monument, downtown, your neighborhood"
+        />
+      </div>
+
+      <div>
         <label htmlFor="date" className="label">
           Preferred date
         </label>
@@ -198,9 +264,6 @@ export function BookingForm() {
           onChange={(e) => setDate(e.target.value)}
           className="input"
         />
-        <p className="mt-1 text-xs text-[var(--foreground-muted)]">
-          Need a weekend or a custom time? Mention it in notes. We will confirm what works.
-        </p>
       </div>
 
       <div>
@@ -221,6 +284,41 @@ export function BookingForm() {
             </button>
           ))}
         </div>
+      </div>
+
+      <div>
+        <label htmlFor="alternateDate" className="label">
+          Backup date{" "}
+          <span className="font-normal text-[var(--foreground-muted)]">(optional)</span>
+        </label>
+        <input
+          id="alternateDate"
+          type="date"
+          min={tomorrowISODate()}
+          max={maxISODate()}
+          value={alternateDate}
+          onChange={(e) => setAlternateDate(e.target.value)}
+          className="input"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="alternateAvailability" className="label">
+          Backup times or general availability{" "}
+          <span className="font-normal text-[var(--foreground-muted)]">(optional)</span>
+        </label>
+        <textarea
+          id="alternateAvailability"
+          rows={3}
+          value={alternateAvailability}
+          onChange={(e) => setAlternateAvailability(e.target.value)}
+          className="input resize-y"
+          placeholder="Example: any Saturday in June, weekday evenings after 5, only Sundays this summer"
+        />
+        <p className="mt-1 text-xs text-[var(--foreground-muted)]">
+          Scheduling can shift with work or school. List anything else that could work and we will
+          match when we reply.
+        </p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
@@ -283,15 +381,16 @@ export function BookingForm() {
 
       <div>
         <label htmlFor="notes" className="label">
-          Notes <span className="font-normal text-[var(--foreground-muted)]">(optional)</span>
+          Anything else{" "}
+          <span className="font-normal text-[var(--foreground-muted)]">(optional)</span>
         </label>
         <textarea
           id="notes"
-          rows={3}
+          rows={2}
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
           className="input resize-y"
-          placeholder="Location ideas, wardrobe, weekend request"
+          placeholder="Wardrobe, group size, accessibility, questions"
         />
       </div>
 

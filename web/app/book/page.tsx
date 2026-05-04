@@ -18,8 +18,8 @@ export default function BookPage() {
             Book a session
           </h1>
           <p className="mx-auto mt-3 max-w-xl text-center text-sm text-[var(--foreground-muted)]">
-            Choose your session, date, and time, then send your request. We follow up by email or
-            Instagram to confirm your date and location.
+            Add your town or area, any backup dates or times that could work, and where you want to
+            shoot if you already know. We follow up by email or Instagram to confirm.
           </p>
           <div className="mt-10">
             <BookingForm />

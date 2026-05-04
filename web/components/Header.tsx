@@ -31,9 +31,9 @@ export function Header() {
           <Image
             src="/logo.png"
             alt="jcapturelab"
-            width={360}
-            height={90}
-            className="h-14 w-auto max-w-[min(92vw,22rem)] object-contain object-center sm:h-16 sm:max-w-[26rem] md:h-[4.25rem] md:max-w-[28rem]"
+            width={1006}
+            height={581}
+            className="h-12 w-auto max-w-[min(92vw,20rem)] object-contain object-center sm:h-14 sm:max-w-[24rem] md:h-[3.75rem] md:max-w-[26rem]"
             priority
             sizes="(max-width: 640px) 92vw, 28rem"
           />
