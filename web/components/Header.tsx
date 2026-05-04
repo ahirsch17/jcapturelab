@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import logoMark from "../public/cropped.png";
 
 const links = [
   { href: "/about", label: "About" },
@@ -11,40 +12,39 @@ const links = [
 export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-black/10 bg-[var(--surface)]/95 backdrop-blur-md">
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-4 sm:flex-row sm:justify-between sm:px-6 sm:py-4">
-        <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium sm:justify-start">
-          {links.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className="text-[var(--foreground-muted)] transition-colors hover:text-[var(--foreground)]"
-            >
-              {label}
-            </Link>
-          ))}
-        </nav>
-
-        <Link
-          href="/"
-          className="order-first flex shrink-0 justify-center sm:order-none sm:absolute sm:left-1/2 sm:-translate-x-1/2"
-        >
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-4 px-4 py-4 sm:px-6 sm:py-4">
+        <Link href="/" className="flex shrink-0 items-center gap-2.5 sm:gap-3">
           <Image
-            src="/logo.png"
-            alt="jcapturelab"
-            width={1006}
-            height={581}
-            className="h-12 w-auto max-w-[min(92vw,20rem)] object-contain object-center sm:h-14 sm:max-w-[24rem] md:h-[3.75rem] md:max-w-[26rem]"
+            src={logoMark}
+            alt=""
+            width={419}
+            height={384}
+            className="h-10 w-10 shrink-0 object-contain sm:h-11 sm:w-11"
             priority
-            sizes="(max-width: 640px) 92vw, 28rem"
+            sizes="44px"
           />
+          <span className="font-[family-name:var(--font-serif)] text-[1.35rem] leading-none tracking-tight text-[var(--foreground)] sm:text-[1.6rem]">
+            jcapturelab
+          </span>
         </Link>
 
-        <div className="flex w-full justify-center sm:w-auto sm:justify-end">
+        <div className="flex min-w-0 flex-1 flex-wrap items-center justify-end gap-x-6 gap-y-2">
+          <nav className="flex flex-wrap justify-end gap-x-6 gap-y-2 text-sm font-medium">
+            {links.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className="text-[var(--foreground-muted)] transition-colors hover:text-[var(--foreground)]"
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
           <a
             href="https://instagram.com/jcapturelab"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-outline text-sm"
+            className="btn-outline shrink-0 text-sm"
           >
             Instagram
           </a>

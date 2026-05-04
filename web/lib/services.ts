@@ -19,10 +19,10 @@ export const gradPackages: ServicePackage[] = [
     id: "grad-mini",
     title: "Grad mini",
     blurb:
-      "Cap and gown or campus portraits when you only need a tight set of shots. This rate applies when you can give at least two possible locations up front and about an hour for the session.",
+      "Cap and gown or campus portraits when you want a shorter session. Intro rate, straight to the point.",
     includes: [
-      "About 1 hour",
-      "At least 2 location options from you when you book (we confirm one that works)",
+      "About an hour",
+      "Often one or two nearby spots if that fits the day",
       "Gallery of edited highlights",
     ],
     price: "From $75",
@@ -33,8 +33,8 @@ export const gradPackages: ServicePackage[] = [
     title: "Grad standard",
     blurb: "More time and variety: outfits, friends shots, and a fuller gallery.",
     includes: [
-      "About 60 minutes",
-      "1 or 2 nearby locations",
+      "Roughly 90 minutes to an hour and a half, depending on the day",
+      "Usually a few nearby spots when they are close together (about 3 to 4 is realistic)",
       "Larger edited gallery",
       "A few cap and gown plus casual looks",
     ],
@@ -72,13 +72,30 @@ export const promPackages: ServicePackage[] = [
   },
 ];
 
+/** Catch-all on the rates page (not a fixed price list). */
+export const flexiblePackages: ServicePackage[] = [
+  {
+    id: "custom-session",
+    title: "Custom session",
+    blurb:
+      "Headshots, couples, small events, branding-style portraits, creative ideas, or anything that is not a fit for the examples above. Same booking form: describe what you want and I reply with timing and a quote.",
+    includes: [
+      "Scope and rate agreed before you book",
+      "Locations and schedule worked out together",
+      "Edited delivery matched to the plan",
+    ],
+    price: "Quoted",
+    rateNote: "Starts from your booking notes",
+  },
+];
+
 export const sessionTypesForBooking = [
+  "Custom or other (describe in notes)",
   "Grad mini",
   "Grad standard",
   "Grad group or friends",
   "Prom solo",
   "Prom couple or dates",
-  "Different session (describe in notes)",
 ] as const;
 
 /** Shown if automated email is unavailable (mailto fallback). */

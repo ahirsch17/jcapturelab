@@ -30,4 +30,7 @@ export const portfolio: PortfolioItem[] = [
   { src: p("053.jpg"), alt: "Photography by jcapturelab" },
   { src: p("039.JPG"), alt: "Photography by jcapturelab" },
   { src: p("051.JPG"), alt: "Photography by jcapturelab" },
+  { src: p("042 2.jpg"), alt: "Photography by jcapturelab" },
+  { src: p("046.jpg"), alt: "Photography by jcapturelab" },
+  { src: p("edited-photo (7) 3.PNG"), alt: "Photography by jcapturelab" },
 ];

@@ -35,7 +35,7 @@ export default function CancelPage() {
           >
             @jcapturelab
           </a>{" "}
-          with the name and date on your booking. We will sort it out from there.
+          with the name and date on your booking. I will sort it out from there.
         </p>
         <p className="mt-8 text-center text-sm text-[var(--foreground-muted)]">
           <Link href="/book" className="font-semibold text-[var(--accent)] hover:underline">

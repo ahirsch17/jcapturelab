@@ -6,13 +6,27 @@ import {
   sessionTypesForBooking,
 } from "@/lib/services";
 
-const DEFAULT_TIME_SLOTS = [
-  "9:00 AM",
-  "11:00 AM",
-  "1:00 PM",
-  "3:00 PM",
-  "5:00 PM",
-] as const;
+/** Every 30 minutes from 9:00 AM through 5:00 PM (inclusive). */
+function buildPreferredTimeOptions(): string[] {
+  const out: string[] = [];
+  const start = 9 * 60;
+  const end = 17 * 60;
+  for (let mins = start; mins <= end; mins += 30) {
+    const h = Math.floor(mins / 60);
+    const m = mins % 60;
+    const d = new Date(2000, 0, 1, h, m, 0, 0);
+    out.push(
+      d.toLocaleTimeString("en-US", {
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+      }),
+    );
+  }
+  return out;
+}
+
+const PREFERRED_TIME_OPTIONS = buildPreferredTimeOptions();
 
 function tomorrowISODate(): string {
   const d = new Date();
@@ -157,7 +171,7 @@ export function BookingForm() {
       if (res.ok) {
         setStatus("success");
         setMessage(
-          "Request sent. Check your inbox for a short confirmation. We will follow up soon to finalize your session.",
+          "Request sent. Check your inbox for a short confirmation. I will follow up soon to finalize your session.",
         );
         resetForm();
         setSubmitting(false);
@@ -178,7 +192,7 @@ export function BookingForm() {
       setStatus("error");
       setMessage(
         data.error ??
-          "Something went wrong. Try again, or email us directly or message @jcapturelab on Instagram.",
+          "Something went wrong. Try again, or email me directly or message @jcapturelab on Instagram.",
       );
     } catch {
       setStatus("error");
@@ -231,7 +245,7 @@ export function BookingForm() {
           autoComplete="address-level2"
         />
         <p className="mt-1 text-xs text-[var(--foreground-muted)]">
-          So we can plan travel and timing. Use the city or town you will be coming from.
+          So I can plan travel and timing. Use the city or town you will be coming from.
         </p>
       </div>
 
@@ -267,23 +281,25 @@ export function BookingForm() {
       </div>
 
       <div>
-        <span className="label">Preferred time</span>
-        <div className="mt-2 flex flex-wrap gap-2">
-          {DEFAULT_TIME_SLOTS.map((t) => (
-            <button
-              key={t}
-              type="button"
-              onClick={() => setSelectedTime(t)}
-              className={`min-w-[44%] flex-1 rounded-lg border px-3 py-2.5 text-sm font-semibold transition-colors sm:min-w-[30%] ${
-                selectedTime === t
-                  ? "border-[var(--accent)] bg-[var(--accent)] text-white"
-                  : "border-black/15 bg-white text-[var(--foreground)] hover:border-black/25"
-              }`}
-            >
+        <label htmlFor="preferredTime" className="label">
+          Preferred time
+        </label>
+        <select
+          id="preferredTime"
+          required
+          value={selectedTime}
+          onChange={(e) => setSelectedTime(e.target.value)}
+          className="input"
+        >
+          <option value="" disabled>
+            Select a time
+          </option>
+          {PREFERRED_TIME_OPTIONS.map((t) => (
+            <option key={t} value={t}>
               {t}
-            </button>
+            </option>
           ))}
-        </div>
+        </select>
       </div>
 
       <div>
@@ -317,7 +333,7 @@ export function BookingForm() {
         />
         <p className="mt-1 text-xs text-[var(--foreground-muted)]">
           Availability varies week to week. The more backup times or ranges you list, the easier it is
-          to line something up when we reply.
+          to line something up when I reply.
         </p>
       </div>
 
@@ -412,7 +428,7 @@ export function BookingForm() {
       )}
 
       <p className="text-center text-xs text-[var(--foreground-muted)]">
-        We follow up by email or Instagram to confirm your date and details.
+        I follow up by email or Instagram to confirm your date and details.
       </p>
     </form>
   );

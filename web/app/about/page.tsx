@@ -7,6 +7,8 @@ import { serviceAreasDisplay } from "@/lib/services";
 
 export const metadata: Metadata = {
   title: "About",
+  description:
+    "Jesus Jimenez: student and freelance photographer behind jcapturelab, Southwest Virginia. Building a portfolio while shooting sessions.",
 };
 
 export default function AboutPage() {
@@ -18,17 +20,22 @@ export default function AboutPage() {
           <h1 className="font-[family-name:var(--font-serif)] text-3xl text-[var(--foreground)] sm:text-4xl">
             About
           </h1>
+          <p className="mt-3 font-[family-name:var(--font-serif)] text-xl text-[var(--foreground)] sm:text-2xl">
+            Jesus Jimenez
+          </p>
           <div className="mt-8 max-w-none space-y-4 text-[15px] leading-relaxed text-[var(--foreground-muted)]">
             <p>
-              All shoots are welcome: couples, headshots, small events, or an idea you want to try.
-              Say what you want when you reach out. Sessions stay relaxed and directed so you do not
-              feel stuck in stiff poses unless that is the vibe you want. If you are camera shy, say
-              so: there is room to warm up.
+              I am a student first. Photography started as a hobby; I freelance under jcapturelab and
+              I am building my portfolio as I go.
             </p>
             <p>
-              Based in Southwest Virginia, regularly serving{" "}
+              Couples, grad, headshots, small events, or something you want to try. Say what you need when
+              you reach out and I will tell you if I can make it work.
+            </p>
+            <p>
+              Based in Southwest Virginia, usually around{" "}
               <strong className="font-semibold text-[var(--foreground)]">{serviceAreasDisplay}</strong>
-              . Mention your school or neighborhood when you reach out so scheduling stays realistic.
+              . Mention your school or neighborhood when you book so scheduling stays realistic.
             </p>
             <p className="font-medium text-[var(--foreground)]">
               <Link href="/services" className="text-[var(--accent)] hover:underline">

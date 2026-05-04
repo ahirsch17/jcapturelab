@@ -94,7 +94,7 @@ export async function POST(request: Request) {
   const customerLines = [
     `Hi ${firstName},`,
     "",
-    "Thanks for reaching out to jcapturelab. We received your booking request and will reply soon to confirm details.",
+    "Thanks for reaching out to jcapturelab. I received your booking request and will reply soon to confirm details.",
     "",
     "Here is what you sent:",
     "",
@@ -119,7 +119,7 @@ export async function POST(request: Request) {
     resend.emails.send({
       from,
       to: [email],
-      subject: "We received your jcapturelab booking request",
+      subject: "Received your jcapturelab booking request",
       text: customerText,
     }),
   ]);

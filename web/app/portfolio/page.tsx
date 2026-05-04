@@ -22,7 +22,7 @@ export default function PortfolioPage() {
             Work
           </h1>
           <p className="mt-3 text-sm leading-relaxed text-[var(--foreground-muted)] sm:text-base">
-            Portraits, grad and prom, and more. The gallery grows as new sessions come in.
+            Portraits, grad and prom, and more.
           </p>
         </header>
 

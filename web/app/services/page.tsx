@@ -3,13 +3,20 @@ import Link from "next/link";
 import { ContentPanel } from "@/components/ContentPanel";
 import { PageBackdrop } from "@/components/PageBackdrop";
 import { backdropServices } from "@/lib/portfolio";
-import { gradPackages, portfolioPricingIntro, promPackages, serviceAreasDisplay } from "@/lib/services";
+import type { ServicePackage } from "@/lib/services";
+import {
+  flexiblePackages,
+  gradPackages,
+  portfolioPricingIntro,
+  promPackages,
+  serviceAreasDisplay,
+} from "@/lib/services";
 
 export const metadata: Metadata = {
   title: "Sessions & rates",
 };
 
-function PackageList({ items }: { items: typeof gradPackages }) {
+function PackageList({ items }: { items: readonly ServicePackage[] }) {
   return (
     <ul className="mt-8 space-y-8">
       {items.map((pkg) => (
@@ -62,22 +69,30 @@ export default function ServicesPage() {
         </div>
 
         <p className="mt-6 text-sm leading-relaxed text-[var(--foreground-muted)] sm:text-base">
-          The packages below are starting points. If you need something that is not listed, send a
-          booking request or DM and we will work out timing and a fair rate.
+          Grad and prom blocks get asked for a lot, so they are spelled out as examples with sample
+          pricing. Headshots, couples, events, or anything else uses the same booking flow and a
+          quote that fits what you need.
         </p>
 
         <section className="mt-14">
           <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
-            Grad packages
+            Examples: grad
           </h2>
           <PackageList items={gradPackages} />
         </section>
 
         <section className="mt-16">
           <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
-            Prom packages
+            Examples: prom
           </h2>
           <PackageList items={promPackages} />
+        </section>
+
+        <section className="mt-16">
+          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
+            Everything else
+          </h2>
+          <PackageList items={flexiblePackages} />
         </section>
 
         <div className="mt-12 rounded-2xl border border-black/[0.08] bg-[var(--accent)]/[0.06] px-5 py-6 text-center text-sm text-[var(--foreground-muted)]">

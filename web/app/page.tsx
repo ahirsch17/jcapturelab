@@ -29,21 +29,9 @@ export default function Home() {
             <p className="mt-3 text-sm leading-relaxed text-white/88 sm:text-base">
               Grad, prom, couples, headshots, more. Book when you are ready.
             </p>
-            <div className="mt-8 flex w-full flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
-              <Link href="/book" className="btn-primary mx-auto min-w-[200px] sm:mx-0">
+            <div className="mt-8 flex justify-center">
+              <Link href="/book" className="btn-primary min-w-[200px]">
                 Book a session
-              </Link>
-              <Link
-                href="/services"
-                className="inline-flex min-h-[44px] min-w-[200px] items-center justify-center rounded-full border-2 border-white px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-[var(--foreground)]"
-              >
-                Sessions &amp; rates
-              </Link>
-              <Link
-                href="/portfolio"
-                className="inline-flex min-h-[44px] min-w-[200px] items-center justify-center rounded-full border-2 border-white px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/15"
-              >
-                View work
               </Link>
             </div>
           </div>
