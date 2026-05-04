@@ -7,20 +7,23 @@ const featured = portfolio.filter((p) => p.featured).slice(0, 4);
 export default function Home() {
   return (
     <>
-      <section className="relative isolate min-h-[85vh] overflow-hidden bg-neutral-900">
+      <section className="relative isolate flex min-h-[min(100vh,920px)] flex-col overflow-hidden bg-neutral-900 pb-14">
         <Image
           src={heroImage}
           alt=""
           fill
           priority
-          className="object-contain object-center"
+          className="object-contain object-bottom"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/40" aria-hidden />
-        <div className="relative z-10 flex min-h-[85vh] items-center justify-center px-4 py-24">
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/45 via-black/30 to-black/15"
+          aria-hidden
+        />
+        <div className="relative z-10 flex flex-1 flex-col items-center justify-end px-4 pb-10 pt-28 sm:justify-center sm:pb-24 sm:pt-32">
           <div className="w-full max-w-lg rounded-2xl border border-white/15 bg-black/25 px-6 py-8 text-center shadow-2xl backdrop-blur-xl sm:px-10 sm:py-9">
             <h1 className="font-[family-name:var(--font-serif)] text-2xl font-normal leading-snug text-white sm:text-3xl">
-              Editorial portraits across Southwest Virginia
+              Portraits and sessions across Southwest Virginia
             </h1>
             <p className="mt-3 text-sm leading-relaxed text-white/88 sm:text-base">
               Grad, prom, couples, headshots, more. Book when you are ready.
@@ -46,7 +49,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-16 pt-8 sm:px-6 sm:pb-20">
+      <section className="mx-auto max-w-6xl px-4 pb-16 pt-14 sm:px-6 sm:pb-20 sm:pt-16">
         <div className="rounded-2xl border border-black/[0.06] bg-white/[0.72] px-5 py-14 shadow-[0_12px_48px_rgb(0,0,0,0.05)] backdrop-blur-sm sm:px-10 sm:py-16">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
