@@ -24,11 +24,11 @@ function PackageList({ items }: { items: typeof gradPackages }) {
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-[var(--foreground-muted)]">{pkg.blurb}</p>
             </div>
-            <div className="shrink-0 text-right">
-              <p className="rounded-full border border-[var(--accent)]/25 bg-[var(--accent)]/10 px-4 py-2 text-sm font-semibold text-[var(--foreground)]">
+            <div className="flex shrink-0 flex-col items-end gap-1.5 text-right">
+              <p className="inline-block w-fit whitespace-nowrap rounded-full border border-[var(--accent)]/25 bg-[var(--accent)]/10 px-4 py-2 text-sm font-semibold text-[var(--foreground)]">
                 {pkg.price}
               </p>
-              <p className="mt-1.5 max-w-[11rem] text-xs leading-snug text-[var(--foreground-muted)]">
+              <p className="max-w-[11rem] text-xs leading-snug text-[var(--foreground-muted)]">
                 {pkg.rateNote}
               </p>
             </div>
