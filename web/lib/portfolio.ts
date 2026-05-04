@@ -11,7 +11,6 @@ function p(filename: string): string {
 export const heroImage = p("IMG_5496.jpg");
 
 export const backdropAbout = p("IMG_5494.jpg");
-export const backdropContact = p("IMG_5479.jpg");
 export const backdropServices = p("IMG_5477.jpg");
 export const backdropCancel = p("IMG_5480.jpg");
 export const backdropPortfolio = p("IMG_5491 2.jpg");
