@@ -10,6 +10,9 @@ function p(filename: string): string {
 
 export const heroImage = p("IMG_5496.jpg");
 
+/** Pixel size of `heroImage` file (update if you change the hero photo). */
+export const heroImageSize = { width: 1206, height: 1817 } as const;
+
 export const backdropAbout = p("IMG_5494.jpg");
 export const backdropServices = p("IMG_5477.jpg");
 export const backdropCancel = p("IMG_5480.jpg");
