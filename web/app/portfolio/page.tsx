@@ -18,7 +18,7 @@ export default function PortfolioPage() {
             Work
           </h1>
           <p className="mt-3 max-w-2xl text-sm text-[var(--foreground-muted)] sm:text-base">
-            Grad, prom, and portrait work. More sessions and categories will show up here over time.
+            Portraits, grad and prom, and more. The gallery grows as new sessions come in.
           </p>
         </ContentPanel>
 

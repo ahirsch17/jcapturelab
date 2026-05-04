@@ -74,7 +74,7 @@ export const sessionTypesForBooking = [
   "Grad group or friends",
   "Prom solo",
   "Prom couple or dates",
-  "Other or not sure yet",
+  "Different session (describe in notes)",
 ] as const;
 
 /** Shown if automated email is unavailable (mailto fallback). */

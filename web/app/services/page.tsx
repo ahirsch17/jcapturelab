@@ -51,8 +51,8 @@ export default function ServicesPage() {
       <div className="relative z-10 mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
         <ContentPanel>
           <h1 className="font-[family-name:var(--font-serif)] text-3xl text-[var(--foreground)] sm:text-4xl">
-          Sessions &amp; rates
-        </h1>
+            Sessions &amp; rates
+          </h1>
         <p className="mt-4 text-sm text-[var(--foreground-muted)]">
           Typical coverage: {serviceAreasDisplay}.
         </p>
@@ -62,20 +62,23 @@ export default function ServicesPage() {
         </div>
 
         <p className="mt-6 text-sm leading-relaxed text-[var(--foreground-muted)] sm:text-base">
-          Packages below focus on{" "}
-          <strong className="font-semibold text-[var(--foreground)]">grad</strong> and{" "}
-          <strong className="font-semibold text-[var(--foreground)]">prom</strong> right now. Rates
-          move toward full pricing as the calendar fills. What you see here is the current intro
-          list.
+          The blocks below are ready made starting points, especially during grad and prom season.
+          Rates move toward full pricing as the calendar fills. If you need something that is not
+          listed (couples, headshots, an event, a random concept), still send a booking request or DM
+          and we will sort time and a fair number for what you have in mind.
         </p>
 
         <section className="mt-14">
-          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">Grad</h2>
+          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
+            Grad packages
+          </h2>
           <PackageList items={gradPackages} />
         </section>
 
         <section className="mt-16">
-          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">Prom</h2>
+          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
+            Prom packages
+          </h2>
           <PackageList items={promPackages} />
         </section>
 

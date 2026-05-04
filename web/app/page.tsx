@@ -34,8 +34,9 @@ export default function Home() {
               Photography with a clean, editorial edge
             </h1>
             <p className="mt-4 text-sm leading-relaxed text-white/90 sm:text-base">
-              Grad, prom, and campus style portraits in {serviceAreasDisplay}. Clear packages and a
-              simple way to reach out.
+              Portraits and lifestyle work across {serviceAreasDisplay}. Grad and prom fill a lot of
+              the calendar, but other sessions are welcome. Clear packages and a simple way to reach
+              out.
             </p>
             <div className="mt-9 flex w-full flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
               <Link href="/book" className="btn-primary mx-auto min-w-[200px] sm:mx-0">

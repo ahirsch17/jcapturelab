@@ -10,7 +10,7 @@ export function Footer() {
             jcapturelab
           </p>
           <p className="mt-1 text-sm text-[var(--foreground-muted)]">
-            Grad and prom photography. {serviceAreasDisplay}.
+            Serving {serviceAreasDisplay}.
           </p>
         </div>
         <div className="flex flex-wrap gap-6 text-sm">

@@ -20,11 +20,13 @@ export default function AboutPage() {
           </h1>
           <div className="mt-8 max-w-none space-y-4 text-[15px] leading-relaxed text-[var(--foreground-muted)]">
           <p>
-            jcapturelab is built around{" "}
+            A portrait and event focused practice: you will see plenty of{" "}
             <strong className="font-semibold text-[var(--foreground)]">grad</strong> and{" "}
-            <strong className="font-semibold text-[var(--foreground)]">prom</strong>: cap and gown,
-            campus spots, portraits before the dance, and small groups. Sessions stay relaxed and
-            directed so you never feel stuck in stiff poses unless that is the vibe you want.
+            <strong className="font-semibold text-[var(--foreground)]">prom</strong> (cap and gown,
+            campus, before the dance, small groups), but it is not limited to those days. Couples,
+            creatives, headshots, other ideas are fair game. Say what you want when you reach out.
+            Sessions stay relaxed and directed so you never feel stuck in stiff poses unless that is
+            the vibe you want.
           </p>
           <p>
             He has been behind the camera for years of portraits and events, with a calm pace on set
