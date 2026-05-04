@@ -7,13 +7,13 @@ const featured = portfolio.filter((p) => p.featured).slice(0, 4);
 export default function Home() {
   return (
     <>
-      <section className="relative isolate min-h-[85vh] overflow-hidden">
+      <section className="relative isolate min-h-[85vh] overflow-hidden bg-neutral-900">
         <Image
           src={heroImage}
           alt=""
           fill
           priority
-          className="object-cover object-[center_24%] sm:object-[center_30%]"
+          className="object-contain object-center"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-black/40" aria-hidden />
