@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="relative">
-      <PageBackdrop src={backdropContact} opacity={0.13} scrim={0.94} />
-      <div className="relative mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
+    <div className="relative isolate min-h-[65vh]">
+      <PageBackdrop src={backdropContact} objectPosition="center 32%" />
+      <div className="relative z-10 mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
         <ContentPanel>
           <h1 className="font-[family-name:var(--font-serif)] text-3xl text-[var(--foreground)] sm:text-4xl">
             Contact

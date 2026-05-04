@@ -2,28 +2,34 @@ import Image from "next/image";
 
 type Props = {
   src: string;
-  /** Photo visibility through the scrim. Typical 0.09 to 0.16 */
+  /** How much of the photo shows through the cream scrim. Typical 0.18 to 0.32 */
   opacity?: number;
-  /** Light overlay strength so body text stays crisp (0.88–0.97) */
+  /** Cream overlay: lower = more photo visible (about 0.65 to 0.88) */
   scrim?: number;
+  /** Focal point so portraits are not awkwardly cropped in the frame */
+  objectPosition?: string;
 };
 
-export function PageBackdrop({ src, opacity = 0.12, scrim = 0.94 }: Props) {
+export function PageBackdrop({
+  src,
+  opacity = 0.26,
+  scrim = 0.72,
+  objectPosition = "center 30%",
+}: Props) {
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10">
+    <div className="pointer-events-none fixed inset-0 z-0" aria-hidden>
       <Image
         src={src}
         alt=""
         fill
         className="object-cover"
-        style={{ opacity }}
+        style={{ opacity, objectPosition }}
         sizes="100vw"
         priority={false}
       />
       <div
         className="absolute inset-0 bg-[var(--background)]"
         style={{ opacity: scrim }}
-        aria-hidden
       />
     </div>
   );

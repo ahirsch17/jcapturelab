@@ -4,7 +4,7 @@
   "description": "Monorepo root; Next.js app is in web/. Render should use root with Build: npm run build, Start: npm run start.",
   "workspaces": ["web"],
   "scripts": {
-    "sync-photos": "mkdir -p web/public/portfolio && cp -R photos/. web/public/portfolio/",
+    "sync-photos": "mkdir -p web/public/portfolio && cp -R photos/. web/public/portfolio/ && cp logo/logo.png web/public/logo.png && cp logo/cropped.png web/public/cropped.png && cp logo/cropped.png web/app/icon.png",
     "build": "npm run build --workspace=jcapturelab",
     "start": "npm run start --workspace=jcapturelab",
     "lint": "npm run lint --workspace=jcapturelab"

@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 export default function PortfolioPage() {
   return (
-    <div className="relative">
-      <PageBackdrop src={backdropPortfolio} opacity={0.11} scrim={0.93} />
-      <div className="relative mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+    <div className="relative isolate min-h-[65vh]">
+      <PageBackdrop src={backdropPortfolio} objectPosition="center 25%" />
+      <div className="relative z-10 mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
         <ContentPanel className="mb-10 max-w-2xl">
           <h1 className="font-[family-name:var(--font-serif)] text-3xl text-[var(--foreground)] sm:text-4xl">
             Work

@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 
 export default function CancelPage() {
   return (
-    <div className="relative">
-      <PageBackdrop src={backdropCancel} opacity={0.13} scrim={0.94} />
-      <div className="relative mx-auto max-w-lg px-4 py-12 sm:px-6 sm:py-16">
+    <div className="relative isolate min-h-[65vh]">
+      <PageBackdrop src={backdropCancel} objectPosition="center 28%" />
+      <div className="relative z-10 mx-auto max-w-lg px-4 py-12 sm:px-6 sm:py-16">
         <ContentPanel>
           <h1 className="font-[family-name:var(--font-serif)] text-2xl text-[var(--foreground)] sm:text-3xl">
           Change or cancel a booking

@@ -24,9 +24,8 @@ export const metadata: Metadata = {
   description:
     "Grad and prom photography in Southwest Virginia: Radford, Roanoke, Blacksburg, Christiansburg, Martinsville. Sessions, rates, and booking.",
   icons: {
-    icon: [{ url: "/cropped.png", type: "image/png" }],
-    shortcut: "/cropped.png",
-    apple: [{ url: "/cropped.png", type: "image/png" }],
+    icon: [{ url: "/cropped.png", type: "image/png", sizes: "any" }],
+    apple: [{ url: "/cropped.png", type: "image/png", sizes: "180x180" }],
   },
 };
 

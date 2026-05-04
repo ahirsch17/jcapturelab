@@ -6,7 +6,7 @@ const links = [
   { href: "/portfolio", label: "Work" },
   { href: "/services", label: "Sessions" },
   { href: "/contact", label: "Contact" },
-  { href: "/book", label: "Book a session" },
+  { href: "/book", label: "Book" },
 ] as const;
 
 export function Header() {

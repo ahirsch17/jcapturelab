@@ -8,41 +8,48 @@ const featured = portfolio.filter((p) => p.featured).slice(0, 4);
 export default function Home() {
   return (
     <>
-      <section className="relative min-h-[85vh]">
+      <section className="relative isolate min-h-[85vh] overflow-hidden">
         <Image
           src={heroImage}
           alt=""
           fill
           priority
-          className="object-cover"
+          className="object-cover object-[center_24%] sm:object-[center_30%]"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/45" aria-hidden />
+        <div className="absolute inset-0 bg-black/40" aria-hidden />
         <div className="relative z-10 flex min-h-[85vh] items-center justify-center px-4 py-24">
-          <div className="max-w-xl rounded-2xl bg-black/35 px-6 py-8 text-center shadow-2xl backdrop-blur-md sm:px-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/75">
-              jcapturelab
-            </p>
-            <h1 className="mt-3 font-[family-name:var(--font-serif)] text-3xl font-normal leading-tight text-white sm:text-4xl">
+          <div className="w-full max-w-xl rounded-2xl border border-white/15 bg-black/25 px-6 py-9 text-center shadow-2xl backdrop-blur-xl sm:px-10 sm:py-10">
+            <Link href="/" className="mx-auto flex w-full justify-center">
+              <Image
+                src="/logo.png"
+                alt="jcapturelab"
+                width={420}
+                height={140}
+                priority
+                className="h-16 w-auto max-w-[min(88vw,18rem)] object-contain drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)] sm:h-[4.5rem] sm:max-w-[20rem]"
+              />
+            </Link>
+            <h1 className="mt-6 font-[family-name:var(--font-serif)] text-3xl font-normal leading-tight text-white sm:text-4xl">
               Photography with a clean, editorial edge
             </h1>
-            <p className="mt-4 text-sm leading-relaxed text-white/85 sm:text-base">
+            <p className="mt-4 text-sm leading-relaxed text-white/90 sm:text-base">
               Grad, prom, and campus style portraits in {serviceAreasDisplay}. Clear packages and a
               simple way to reach out.
             </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link href="/book" className="btn-primary min-w-[200px]">
+            <div className="mt-9 flex w-full flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
+              <Link href="/book" className="btn-primary mx-auto min-w-[200px] sm:mx-0">
                 Book a session
               </Link>
               <Link
                 href="/services"
-                className="inline-flex min-w-[200px] items-center justify-center rounded-full border-2 border-white px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-[var(--foreground)]"
+                className="inline-flex min-h-[44px] min-w-[200px] items-center justify-center rounded-full border-2 border-white px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-[var(--foreground)]"
               >
                 Sessions &amp; rates
               </Link>
               <Link
                 href="/portfolio"
-                className="inline-flex min-w-[200px] items-center justify-center rounded-full border-2 border-white/70 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                className="inline-flex min-h-[44px] min-w-[200px] items-center justify-center rounded-full border-2 border-white px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/15"
               >
                 View work
               </Link>
