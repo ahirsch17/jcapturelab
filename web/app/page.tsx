@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { heroImage, portfolio } from "@/lib/portfolio";
-import { serviceAreasDisplay } from "@/lib/services";
 
 const featured = portfolio.filter((p) => p.featured).slice(0, 4);
 
@@ -19,26 +18,14 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-black/40" aria-hidden />
         <div className="relative z-10 flex min-h-[85vh] items-center justify-center px-4 py-24">
-          <div className="w-full max-w-xl rounded-2xl border border-white/15 bg-black/25 px-6 py-9 text-center shadow-2xl backdrop-blur-xl sm:px-10 sm:py-10">
-            <Link href="/" className="mx-auto flex w-full justify-center">
-              <Image
-                src="/logo.png"
-                alt="jcapturelab"
-                width={420}
-                height={140}
-                priority
-                className="h-16 w-auto max-w-[min(88vw,18rem)] object-contain drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)] sm:h-[4.5rem] sm:max-w-[20rem]"
-              />
-            </Link>
-            <h1 className="mt-6 font-[family-name:var(--font-serif)] text-3xl font-normal leading-tight text-white sm:text-4xl">
-              Photography with a clean, editorial edge
+          <div className="w-full max-w-lg rounded-2xl border border-white/15 bg-black/25 px-6 py-8 text-center shadow-2xl backdrop-blur-xl sm:px-10 sm:py-9">
+            <h1 className="font-[family-name:var(--font-serif)] text-2xl font-normal leading-snug text-white sm:text-3xl">
+              Editorial portraits across Southwest Virginia
             </h1>
-            <p className="mt-4 text-sm leading-relaxed text-white/90 sm:text-base">
-              Portraits and lifestyle work across {serviceAreasDisplay}. Grad and prom fill a lot of
-              the calendar, but other sessions are welcome. Clear packages and a simple way to reach
-              out.
+            <p className="mt-3 text-sm leading-relaxed text-white/88 sm:text-base">
+              Grad, prom, couples, headshots, more. Book when you are ready.
             </p>
-            <div className="mt-9 flex w-full flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
+            <div className="mt-8 flex w-full flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
               <Link href="/book" className="btn-primary mx-auto min-w-[200px] sm:mx-0">
                 Book a session
               </Link>
