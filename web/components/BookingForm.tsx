@@ -246,7 +246,7 @@ export function BookingForm() {
           value={shootSpotIdeas}
           onChange={(e) => setShootSpotIdeas(e.target.value)}
           className="input resize-y"
-          placeholder="Park, campus spot, monument, downtown, your neighborhood"
+          placeholder="Park, campus gate, monument, trail"
         />
       </div>
 
@@ -316,8 +316,8 @@ export function BookingForm() {
           placeholder="Example: any Saturday in June, weekday evenings after 5, only Sundays this summer"
         />
         <p className="mt-1 text-xs text-[var(--foreground-muted)]">
-          Scheduling can shift with work or school. List anything else that could work and we will
-          match when we reply.
+          Availability varies week to week. The more backup times or ranges you list, the easier it is
+          to line something up when we reply.
         </p>
       </div>
 
