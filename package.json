@@ -1,0 +1,8 @@
+{
+  "name": "jcapturelab",
+  "private": true,
+  "description": "Run npm scripts from repo root; Next app lives in web/",
+  "scripts": {
+    "sync-photos": "mkdir -p web/public/portfolio && cp -R photos/. web/public/portfolio/"
+  }
+}
