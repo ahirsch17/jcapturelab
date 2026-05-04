@@ -8,10 +8,10 @@ function p(filename: string): string {
   return `/portfolio/${encodeURIComponent(filename)}`;
 }
 
-export const heroImage = p("IMG_5496.jpg");
+export const heroImage = p("053.jpg");
 
 /** Pixel size of `heroImage` file (update if you change the hero photo). */
-export const heroImageSize = { width: 1206, height: 1817 } as const;
+export const heroImageSize = { width: 2656, height: 3984 } as const;
 
 export const backdropAbout = p("IMG_5494.jpg");
 export const backdropServices = p("IMG_5477.jpg");
