@@ -19,44 +19,42 @@ export default function AboutPage() {
             About
           </h1>
           <div className="mt-8 max-w-none space-y-4 text-[15px] leading-relaxed text-[var(--foreground-muted)]">
-          <p>
-            A portrait and event focused practice: you will see plenty of{" "}
-            <strong className="font-semibold text-[var(--foreground)]">grad</strong> and{" "}
-            <strong className="font-semibold text-[var(--foreground)]">prom</strong> (cap and gown,
-            campus, before the dance, small groups), but it is not limited to those days. Couples,
-            creatives, headshots, other ideas are fair game. Say what you want when you reach out.
-            Sessions stay relaxed and directed so you never feel stuck in stiff poses unless that is
-            the vibe you want.
-          </p>
-          <p>
-            He has been behind the camera for years of portraits and events, with a calm pace on set
-            and an eye for clean light and real expressions. If you are camera shy, say so: there is
-            time to warm up and still walk away with plenty of keepers.
-          </p>
-          <p>
-            Based in Southwest Virginia, regularly serving{" "}
-            <strong className="font-semibold text-[var(--foreground)]">{serviceAreasDisplay}</strong>
-            . Mention your school or neighborhood when you reach out so scheduling stays realistic.
-          </p>
-          <p className="font-medium text-[var(--foreground)]">
-            <Link href="/services" className="text-[var(--accent)] hover:underline">
-              Sessions &amp; rates
-            </Link>
-            {", "}
-            <Link href="/book" className="text-[var(--accent)] hover:underline">
-              Book a session
-            </Link>
-            {", "}
-            <a
-              href="https://instagram.com/jcapturelab"
-              className="text-[var(--accent)] hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Instagram
-            </a>
-          </p>
-        </div>
+            <p>
+              jcapturelab leans into grad and prom while the season is busy, but other shoots are
+              welcome too: couples, headshots, small events, or an idea you want to try. Say what
+              you want when you reach out. Sessions stay relaxed and directed so you do not feel
+              stuck in stiff poses unless that is the vibe you want.
+            </p>
+            <p>
+              The brand is still new and the portfolio is growing, which keeps intro rates friendly
+              while the work catches up. Pace on set stays calm, with attention to light and real
+              expressions over a long resume. If you are camera shy, say so: there is time to warm
+              up and still leave with keepers.
+            </p>
+            <p>
+              Based in Southwest Virginia, regularly serving{" "}
+              <strong className="font-semibold text-[var(--foreground)]">{serviceAreasDisplay}</strong>
+              . Mention your school or neighborhood when you reach out so scheduling stays realistic.
+            </p>
+            <p className="font-medium text-[var(--foreground)]">
+              <Link href="/services" className="text-[var(--accent)] hover:underline">
+                Sessions &amp; rates
+              </Link>
+              {", "}
+              <Link href="/book" className="text-[var(--accent)] hover:underline">
+                Book a session
+              </Link>
+              {", "}
+              <a
+                href="https://instagram.com/jcapturelab"
+                className="text-[var(--accent)] hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>
+            </p>
+          </div>
         </ContentPanel>
       </div>
     </div>

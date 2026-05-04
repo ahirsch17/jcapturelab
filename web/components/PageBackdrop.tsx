@@ -2,9 +2,9 @@ import Image from "next/image";
 
 type Props = {
   src: string;
-  /** How much of the photo shows through the cream scrim. Typical 0.18 to 0.32 */
+  /** Photo strength before scrim. Higher = image reads clearly (typical 0.4 to 0.65) */
   opacity?: number;
-  /** Cream overlay: lower = more photo visible (about 0.65 to 0.88) */
+  /** Cream wash over the photo. Lower = more photo visible (typical 0.28 to 0.52) */
   scrim?: number;
   /** Focal point so portraits are not awkwardly cropped in the frame */
   objectPosition?: string;
@@ -12,8 +12,8 @@ type Props = {
 
 export function PageBackdrop({
   src,
-  opacity = 0.26,
-  scrim = 0.72,
+  opacity = 0.52,
+  scrim = 0.38,
   objectPosition = "center 30%",
 }: Props) {
   return (
