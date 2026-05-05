@@ -12,16 +12,16 @@ const links = [
 export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-black/10 bg-[var(--surface)]/95 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 py-3 sm:px-6 sm:py-3.5">
-        <Link href="/" className="flex shrink-0 items-center">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-2 sm:px-6 sm:py-2">
+        <Link href="/" className="flex shrink-0 items-center leading-none">
           <Image
             src={logoImage}
             alt="jcapturelab"
             width={logoImage.width}
             height={logoImage.height}
-            className="box-border h-auto w-auto max-h-10 max-w-none object-contain object-left sm:max-h-11"
+            className="box-border h-auto w-auto max-h-12 max-w-none object-contain object-left sm:max-h-[3.25rem]"
             priority
-            sizes="(max-width: 640px) 55vw, 200px"
+            sizes="(max-width: 640px) 55vw, 220px"
           />
         </Link>
 
