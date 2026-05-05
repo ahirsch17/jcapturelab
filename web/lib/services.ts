@@ -12,18 +12,19 @@ export const serviceAreasDisplay =
   "Radford, Roanoke, Blacksburg, Christiansburg, Martinsville, and nearby towns";
 
 export const portfolioPricingIntro =
-  "Rates here are set below typical full package pricing. Any use of your images on social or in the gallery happens only with your clear okay, agreed before the shoot.";
+  "Freelance intro pricing. Social or gallery use of your photos only happens with your clear okay, settled before the shoot.";
 
 export const gradPackages: ServicePackage[] = [
   {
     id: "grad-mini",
     title: "Grad mini",
     blurb:
-      "Cap and gown or campus portraits when you want a shorter session. Intro rate, straight to the point.",
+      "Cap and gown or campus portraits in a tighter window. Good when you want the essentials.",
     includes: [
-      "About an hour",
-      "Often one or two nearby spots if that fits the day",
-      "Gallery of edited highlights",
+      "Duration: about 60 minutes",
+      "Locations: up to 2 nearby",
+      "People: solo graduate session",
+      "Delivery: edited highlight gallery",
     ],
     price: "From $75",
     rateNote: "Intro rate",
@@ -31,12 +32,14 @@ export const gradPackages: ServicePackage[] = [
   {
     id: "grad-standard",
     title: "Grad standard",
-    blurb: "More time and variety: outfits, friends shots, and a fuller gallery.",
+    blurb:
+      "More room for outfits, more stops, and a bigger set of edits than the mini.",
     includes: [
-      "Roughly 90 minutes to an hour and a half, depending on the day",
-      "Usually a few nearby spots when they are close together (about 3 to 4 is realistic)",
-      "Larger edited gallery",
-      "A few cap and gown plus casual looks",
+      "Duration: about 90 minutes",
+      "Locations: up to 4 nearby when drive time stays reasonable",
+      "People: solo graduate; quick shots with a friend fit if time allows",
+      "Looks: cap/gown plus casual outfit changes",
+      "Delivery: larger edited gallery",
     ],
     price: "From $125",
     rateNote: "Intro rate",
@@ -45,8 +48,14 @@ export const gradPackages: ServicePackage[] = [
     id: "grad-group",
     title: "Grad group or friends",
     blurb:
-      "Small groups (roommates, clubs, teams) who want coordinated photos the same day.",
-    includes: ["Shared session block", "Mix of group and individual frames", "Coordinated schedule"],
+      "Roommates, clubs, friends who want shared time on one calendar block.",
+    includes: [
+      "Duration: quoted after headcount (often around 90–120 minutes for small groups)",
+      "Locations: planned so nobody is chasing across town",
+      "People: small groups; larger sets priced after we talk headcount",
+      "Coverage: group shots plus individual frames",
+      "Rate split across the group",
+    ],
     price: "From $175",
     rateNote: "Intro rate, split by group",
   },
@@ -57,16 +66,26 @@ export const promPackages: ServicePackage[] = [
     id: "prom-solo",
     title: "Prom solo",
     blurb:
-      "Individual portraits before the dance: outfit detail, portraits, quick location set.",
-    includes: ["Focused solo coverage", "Location agreed in advance", "Edited highlights"],
+      "Before the dance: outfit detail, portraits, and a simple location plan.",
+    includes: [
+      "Duration: about 45–60 minutes",
+      "Locations: 1 primary spot (plus a tight second nearby if time allows)",
+      "People: you, solo",
+      "Delivery: edited highlights",
+    ],
     price: "From $85",
     rateNote: "Intro rate",
   },
   {
     id: "prom-couple",
     title: "Prom couple or dates",
-    blurb: "You and your date: coordinated poses, candids, and a few detail shots.",
-    includes: ["Couple forward posing", "Optional quick solo add ons", "Edited highlights"],
+    blurb: "You and your date with candids, posing, and detail shots.",
+    includes: [
+      "Duration: about 60 minutes",
+      "Locations: up to 2 nearby",
+      "People: 2 (you + date)",
+      "Delivery: edited highlights",
+    ],
     price: "From $130",
     rateNote: "Intro rate",
   },
@@ -80,9 +99,9 @@ export const flexiblePackages: ServicePackage[] = [
     blurb:
       "Headshots, couples, small events, branding-style portraits, creative ideas, or anything that is not a fit for the examples above. Same booking form: describe what you want and I reply with timing and a quote.",
     includes: [
-      "Scope and rate agreed before you book",
-      "Locations and schedule worked out together",
-      "Edited delivery matched to the plan",
+      "Duration, locations, and headcount spelled out before you pay",
+      "Quote based on what you describe in the booking form",
+      "Edited delivery matched to what we agree",
     ],
     price: "Quoted",
     rateNote: "Starts from your booking notes",
