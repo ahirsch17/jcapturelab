@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import logoMark from "../public/cropped.png";
+import logoImage from "../public/logo.png";
 
 const links = [
   { href: "/about", label: "About" },
@@ -13,19 +13,16 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-black/10 bg-[var(--surface)]/95 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-4 px-4 py-4 sm:px-6 sm:py-4">
-        <Link href="/" className="flex shrink-0 items-center gap-2.5 sm:gap-3">
+        <Link href="/" className="flex shrink-0 items-center">
           <Image
-            src={logoMark}
-            alt=""
-            width={419}
-            height={384}
-            className="h-10 w-10 shrink-0 object-contain sm:h-11 sm:w-11"
+            src={logoImage}
+            alt="jcapturelab"
+            width={logoImage.width}
+            height={logoImage.height}
+            className="box-border h-auto w-auto max-h-[4.5rem] max-w-none object-contain object-left sm:max-h-[5rem] md:max-h-28"
             priority
-            sizes="44px"
+            sizes="(max-width: 640px) 90vw, 280px"
           />
-          <span className="font-[family-name:var(--font-serif)] text-[1.35rem] leading-none tracking-tight text-[var(--foreground)] sm:text-[1.6rem]">
-            jcapturelab
-          </span>
         </Link>
 
         <div className="flex min-w-0 flex-1 flex-wrap items-center justify-end gap-x-6 gap-y-2">
