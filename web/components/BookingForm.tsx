@@ -245,7 +245,7 @@ export function BookingForm() {
             value={customDetails}
             onChange={(e) => setCustomDetails(e.target.value)}
             className="input resize-y"
-            placeholder="What you want shot, vibe, locations, and anything I need to quote it"
+            placeholder="What you want shot, vibe, locations, solo or group, and anything I need to quote it"
           />
         </div>
       )}

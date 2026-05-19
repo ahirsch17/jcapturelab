@@ -22,7 +22,11 @@ export const heardFromOptions = [
 export type HeardFromOption = (typeof heardFromOptions)[number];
 
 export function sessionNeedsHeadcount(sessionType: string): boolean {
-  return sessionType.length > 0 && !SOLO_SESSION_TYPES.has(sessionType);
+  return (
+    sessionType.length > 0 &&
+    !SOLO_SESSION_TYPES.has(sessionType) &&
+    !isCustomSession(sessionType)
+  );
 }
 
 export function isCustomSession(sessionType: string): boolean {
