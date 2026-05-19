@@ -21,10 +21,10 @@ export function Footer() {
             Sessions
           </Link>
           <Link href="/book" className="text-[var(--foreground-muted)] hover:text-[var(--foreground)]">
-            Book
+            Request
           </Link>
           <Link href="/cancel" className="text-[var(--foreground-muted)] hover:text-[var(--foreground)]">
-            Change booking
+            Change session
           </Link>
           <a
             href="https://instagram.com/jcapturelab"

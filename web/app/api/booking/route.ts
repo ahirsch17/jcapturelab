@@ -1,21 +1,35 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
-import { sessionTypesForBooking } from "@/lib/services";
+import {
+  buildCustomerSessionEmail,
+  buildOwnerSessionEmail,
+  type SessionRequestDetails,
+} from "@/lib/booking-email";
+import {
+  allowedSessionTypes,
+  customerFirstName,
+  displayName,
+  hasContactMethod,
+  heardFromOptions,
+  isCustomSession,
+  sessionNeedsHeadcount,
+} from "@/lib/booking";
 
-const allowedSessionTypes = new Set<string>(sessionTypesForBooking);
+const allowedHeardFrom = new Set<string>(heardFromOptions);
 
 type Body = {
   sessionType?: string;
-  date?: string;
-  selectedTime?: string;
+  scheduleNotes?: string;
   townArea?: string;
   shootSpotIdeas?: string;
-  alternateDate?: string;
-  alternateAvailability?: string;
-  firstName?: string;
-  lastName?: string;
+  customDetails?: string;
+  groupSize?: string;
+  name?: string;
   email?: string;
   phone?: string;
+  instagram?: string;
+  heardFrom?: string;
+  photoSharing?: string;
   notes?: string;
 };
 
@@ -45,66 +59,83 @@ export async function POST(request: Request) {
   }
 
   const sessionType = body.sessionType?.trim() ?? "";
-  const date = body.date?.trim() ?? "";
-  const selectedTime = body.selectedTime?.trim() ?? "";
+  const scheduleNotes = body.scheduleNotes?.trim() ?? "";
   const townArea = body.townArea?.trim() ?? "";
   const shootSpotIdeas = body.shootSpotIdeas?.trim() ?? "";
-  const alternateDate = body.alternateDate?.trim() ?? "";
-  const alternateAvailability = body.alternateAvailability?.trim() ?? "";
-  const firstName = body.firstName?.trim() ?? "";
-  const lastName = body.lastName?.trim() ?? "";
+  const customDetails = body.customDetails?.trim() ?? "";
+  const groupSize = body.groupSize?.trim() ?? "";
+  const name = body.name?.trim() ?? "";
   const email = body.email?.trim() ?? "";
   const phone = body.phone?.trim() ?? "";
+  const instagram = body.instagram?.trim() ?? "";
+  const heardFrom = body.heardFrom?.trim() ?? "";
+  const photoSharing = body.photoSharing?.trim() ?? "";
   const notes = body.notes?.trim() ?? "";
 
   if (!allowedSessionTypes.has(sessionType)) {
     return NextResponse.json({ error: "Choose a valid session type." }, { status: 400 });
   }
-  if (
-    !isNonEmpty(date) ||
-    !isNonEmpty(selectedTime) ||
-    !isNonEmpty(firstName) ||
-    !isNonEmpty(lastName) ||
-    !isNonEmpty(townArea)
-  ) {
+  if (!isNonEmpty(scheduleNotes) || !isNonEmpty(townArea)) {
     return NextResponse.json({ error: "Please fill in every required field." }, { status: 400 });
+  }
+  if (!hasContactMethod(name, phone)) {
+    return NextResponse.json(
+      { error: "Add your name or phone number so I know how to reach you." },
+      { status: 400 },
+    );
+  }
+  if (isCustomSession(sessionType) && !isNonEmpty(customDetails)) {
+    return NextResponse.json(
+      { error: "Describe your custom shoot before sending." },
+      { status: 400 },
+    );
+  }
+  if (sessionNeedsHeadcount(sessionType)) {
+    const n = Number(groupSize);
+    if (!groupSize || !Number.isInteger(n) || n < 2) {
+      return NextResponse.json(
+        { error: "Enter how many people (at least 2)." },
+        { status: 400 },
+      );
+    }
   }
   if (!emailOk(email)) {
     return NextResponse.json({ error: "Enter a valid email address." }, { status: 400 });
   }
+  if (photoSharing !== "yes" && photoSharing !== "no") {
+    return NextResponse.json(
+      { error: "Choose whether photos may be shared on the website and social media." },
+      { status: 400 },
+    );
+  }
+  if (heardFrom && !allowedHeardFrom.has(heardFrom)) {
+    return NextResponse.json({ error: "Choose a valid option for how you heard about us." }, { status: 400 });
+  }
 
-  const fullName = `${firstName} ${lastName}`.trim();
+  const displayFullName = displayName(name);
+  const firstName = customerFirstName(name);
+  const photoSharingLabel = photoSharing === "yes" ? "Yes" : "No";
+  const headcountLabel = sessionNeedsHeadcount(sessionType) ? groupSize : "";
 
-  const detailLines = [
-    `Session type: ${sessionType}`,
-    `Town or area: ${townArea}`,
-    shootSpotIdeas ? `Shoot location ideas: ${shootSpotIdeas}` : null,
-    `Preferred date: ${date}`,
-    `Preferred time: ${selectedTime}`,
-    alternateDate ? `Backup date: ${alternateDate}` : null,
-    alternateAvailability ? `Backup times / availability: ${alternateAvailability}` : null,
-    `Name: ${fullName}`,
-    `Email: ${email}`,
-    phone ? `Phone: ${phone}` : null,
-    notes ? `Other notes: ${notes}` : null,
-  ].filter(Boolean);
+  const details: SessionRequestDetails = {
+    sessionType,
+    townArea,
+    shootSpotIdeas,
+    scheduleNotes,
+    customDetails,
+    headcountLabel,
+    fullName: displayFullName,
+    firstName,
+    email,
+    phone,
+    instagram,
+    heardFrom,
+    photoSharingLabel,
+    notes,
+  };
 
-  const ownerText = ["New booking request from jcapturelab.com", "", ...detailLines].join("\n");
-
-  const customerLines = [
-    `Hi ${firstName},`,
-    "",
-    "Thanks for reaching out to jcapturelab. I received your booking request and will reply soon to confirm details.",
-    "",
-    "Here is what you sent:",
-    "",
-    ...detailLines,
-    "",
-    "If anything looks wrong, reply to this email or message @jcapturelab on Instagram.",
-    "",
-    "jcapturelab",
-  ];
-  const customerText = customerLines.join("\n");
+  const ownerEmail = buildOwnerSessionEmail(details);
+  const customerEmail = buildCustomerSessionEmail(details);
 
   const resend = new Resend(key);
 
@@ -113,14 +144,16 @@ export async function POST(request: Request) {
       from,
       to: [to],
       replyTo: email,
-      subject: `Booking request: ${sessionType} (${townArea}, ${date})`,
-      text: ownerText,
+      subject: `Session request: ${sessionType} (${townArea})`,
+      html: ownerEmail.html,
+      text: ownerEmail.text,
     }),
     resend.emails.send({
       from,
       to: [email],
-      subject: "Received your jcapturelab booking request",
-      text: customerText,
+      subject: "Received your jcapturelab session request",
+      html: customerEmail.html,
+      text: customerEmail.text,
     }),
   ]);
 

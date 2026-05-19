@@ -27,11 +27,11 @@ export default function Home() {
               Portraits and sessions across Southwest Virginia
             </h1>
             <p className="mt-3 text-sm leading-relaxed text-white/88 sm:text-base">
-              Grad, prom, couples, headshots, more. Book when you are ready.
+              Grad, prom, couples, headshots, more. Send a request when you are ready.
             </p>
             <div className="mt-8 flex justify-center">
               <Link href="/book" className="btn-primary min-w-[200px]">
-                Book a session
+                Request a session
               </Link>
             </div>
           </div>
@@ -43,17 +43,17 @@ export default function Home() {
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <h2 className="font-[family-name:var(--font-serif)] text-2xl text-[var(--foreground)] sm:text-3xl">
-                Selected frames
+                A look at recent work
               </h2>
               <p className="mt-2 max-w-lg text-sm text-[var(--foreground-muted)]">
-                A look at recent work. See the full gallery for more.
+                See the full gallery for more.
               </p>
             </div>
             <Link
               href="/portfolio"
               className="text-sm font-semibold text-[var(--accent)] hover:underline"
             >
-              See full gallery
+              Full gallery
             </Link>
           </div>
 

@@ -70,7 +70,7 @@ export default function ServicesPage() {
 
         <p className="mt-6 text-sm leading-relaxed text-[var(--foreground-muted)] sm:text-base">
           Grad and prom blocks get asked for a lot, so they are spelled out as examples with sample
-          pricing. Headshots, couples, events, or anything else uses the same booking flow and a
+          pricing. Headshots, couples, events, or anything else uses the same request form and a
           quote that fits what you need.
         </p>
 
@@ -96,9 +96,9 @@ export default function ServicesPage() {
         </section>
 
         <div className="mt-12 rounded-2xl border border-black/[0.08] bg-[var(--accent)]/[0.06] px-5 py-6 text-center text-sm text-[var(--foreground-muted)]">
-          Ready to hold a date?{" "}
+          Ready to get on the calendar?{" "}
           <Link href="/book" className="font-semibold text-[var(--accent)] hover:underline">
-            Send a booking request
+            Send a session request
           </Link>
           .
         </div>

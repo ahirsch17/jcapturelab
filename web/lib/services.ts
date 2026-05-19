@@ -50,7 +50,7 @@ export const gradPackages: ServicePackage[] = [
     blurb:
       "Roommates, clubs, friends who want shared time on one calendar block.",
     includes: [
-      "Duration: quoted after headcount (often around 90–120 minutes for small groups)",
+      "Duration: quoted after headcount (often around 90-120 minutes for small groups)",
       "Locations: planned so nobody is chasing across town",
       "People: small groups; larger sets priced after we talk headcount",
       "Coverage: group shots plus individual frames",
@@ -68,7 +68,7 @@ export const promPackages: ServicePackage[] = [
     blurb:
       "Before the dance: outfit detail, portraits, and a simple location plan.",
     includes: [
-      "Duration: about 45–60 minutes",
+      "Duration: about 45-60 minutes",
       "Locations: 1 primary spot (plus a tight second nearby if time allows)",
       "People: you, solo",
       "Delivery: edited highlights",
@@ -97,25 +97,40 @@ export const flexiblePackages: ServicePackage[] = [
     id: "custom-session",
     title: "Custom session",
     blurb:
-      "Headshots, couples, small events, branding-style portraits, creative ideas, or anything that is not a fit for the examples above. Same booking form: describe what you want and I reply with timing and a quote.",
+      "Headshots, couples, small events, branding-style portraits, creative ideas, or anything that is not a fit for the examples above. Same request form: describe what you want and I reply with timing and a quote.",
     includes: [
       "Duration, locations, and headcount spelled out before you pay",
-      "Quote based on what you describe in the booking form",
+      "Quote based on what you describe in the request form",
       "Edited delivery matched to what we agree",
     ],
     price: "Quoted",
-    rateNote: "Starts from your booking notes",
+    rateNote: "Starts from your request notes",
   },
 ];
 
-export const sessionTypesForBooking = [
-  "Custom or other (describe in notes)",
-  "Grad mini",
-  "Grad standard",
-  "Grad group or friends",
-  "Prom solo",
-  "Prom couple or dates",
+export const sessionTypeGroupsForBooking = [
+  {
+    label: "Graduation",
+    options: ["Grad mini", "Grad standard", "Grad group or friends"],
+  },
+  {
+    label: "Prom",
+    options: ["Prom solo", "Prom couple or dates"],
+  },
+  {
+    label: "Other",
+    options: [
+      "Headshots or branding",
+      "Couples or portraits",
+      "Event",
+      "Custom session",
+    ],
+  },
 ] as const;
+
+export const sessionTypesForBooking = sessionTypeGroupsForBooking.flatMap(
+  (g) => g.options,
+);
 
 /** Shown if automated email is unavailable (mailto fallback). */
 export const bookingFallbackEmail = "jcapturelab@gmail.com";

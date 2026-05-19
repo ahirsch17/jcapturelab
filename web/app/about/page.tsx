@@ -43,7 +43,7 @@ export default function AboutPage() {
               </Link>
               {", "}
               <Link href="/book" className="text-[var(--accent)] hover:underline">
-                Book a session
+                Request a session
               </Link>
               {", "}
               <a

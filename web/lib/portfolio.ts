@@ -20,6 +20,12 @@ export const backdropPortfolio = p("IMG_5491 2.jpg");
 export const backdropBook = p("IMG_5492.jpg");
 
 export const portfolio: PortfolioItem[] = [
+  { src: p("IMG_6158.jpg"), alt: "Photography by jcapturelab", featured: true },
+  { src: p("IMG_6157.jpg"), alt: "Photography by jcapturelab", featured: true },
+  { src: p("IMG_6156.jpg"), alt: "Photography by jcapturelab" },
+  { src: p("IMG_6155.jpg"), alt: "Photography by jcapturelab", featured: true },
+  { src: p("IMG_6091.JPG"), alt: "Photography by jcapturelab" },
+  { src: p("IMG_6086.JPG"), alt: "Photography by jcapturelab" },
   { src: p("IMG_5496.jpg"), alt: "Photography by jcapturelab" },
   { src: p("IMG_5494.jpg"), alt: "Photography by jcapturelab", featured: true },
   { src: p("IMG_5492.jpg"), alt: "Photography by jcapturelab", featured: true },
