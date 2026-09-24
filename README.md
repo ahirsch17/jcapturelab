@@ -1,10 +1,10 @@
 # jcapturelab
 
-Freelance photography booking site. Next.js app is in [`web/`](web/).
+Freelance photography booking site. Next.js app lives in [`web/`](web/).
 
 ```bash
 npm install
 npm run dev --workspace=jcapturelab
 ```
 
-Render: build `npm run build`, start `npm run start` from the repo root.
+On Render: build with `npm run build`, start with `npm run start` from the repo root.
