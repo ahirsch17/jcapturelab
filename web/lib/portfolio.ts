@@ -20,10 +20,15 @@ export const backdropPortfolio = p("IMG_5491 2.jpg");
 export const backdropBook = p("IMG_5492.jpg");
 
 export const portfolio: PortfolioItem[] = [
-  { src: p("IMG_6158.jpg"), alt: "Photography by jcapturelab", featured: true },
+  { src: p("bjj-portrait.jpg"), alt: "Portrait in a blue gi in front of the Blue Gorilla logo", featured: true },
+  { src: p("bjj-belt.jpg"), alt: "Portrait holding a brown belt in front of the Blue Gorilla logo", featured: true },
+  { src: p("bjj-celebration.jpg"), alt: "Two students in blue gis after a match" },
+  { src: p("bjj-promotion.jpg"), alt: "An instructor tying a belt during a promotion" },
+  { src: p("bjj-lineup.jpg"), alt: "Students in blue gis at the end of class" },
+  { src: p("IMG_6158.jpg"), alt: "Photography by jcapturelab" },
   { src: p("IMG_6157.jpg"), alt: "Photography by jcapturelab", featured: true },
   { src: p("IMG_6156.jpg"), alt: "Photography by jcapturelab" },
-  { src: p("IMG_6155.jpg"), alt: "Photography by jcapturelab", featured: true },
+  { src: p("IMG_6155.jpg"), alt: "Photography by jcapturelab" },
   { src: p("IMG_6091.JPG"), alt: "Photography by jcapturelab" },
   { src: p("IMG_6086.JPG"), alt: "Photography by jcapturelab" },
   { src: p("IMG_5496.jpg"), alt: "Photography by jcapturelab" },
