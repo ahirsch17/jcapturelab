@@ -3,12 +3,11 @@ import { sessionTypesForBooking } from "@/lib/services";
 export const CUSTOM_SESSION_TYPE = "Custom session";
 export const EVENT_SESSION_TYPE = "Event";
 
-export const SOLO_SESSION_TYPES = new Set([
-  "Grad mini",
-  "Grad standard",
-  "Prom solo",
-  "Headshots or branding",
-]);
+export function minHeadcount(sessionType: string): number {
+  if (sessionType === "Group") return 3;
+  if (isEventSession(sessionType)) return 2;
+  return 0;
+}
 
 export const heardFromOptions = [
   "Instagram",
@@ -22,11 +21,7 @@ export const heardFromOptions = [
 export type HeardFromOption = (typeof heardFromOptions)[number];
 
 export function sessionNeedsHeadcount(sessionType: string): boolean {
-  return (
-    sessionType.length > 0 &&
-    !SOLO_SESSION_TYPES.has(sessionType) &&
-    !isCustomSession(sessionType)
-  );
+  return minHeadcount(sessionType) > 0;
 }
 
 export function isCustomSession(sessionType: string): boolean {

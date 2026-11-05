@@ -12,6 +12,7 @@ import {
   hasContactMethod,
   heardFromOptions,
   isCustomSession,
+  minHeadcount,
   sessionNeedsHeadcount,
 } from "@/lib/booking";
 
@@ -92,9 +93,10 @@ export async function POST(request: Request) {
   }
   if (sessionNeedsHeadcount(sessionType)) {
     const n = Number(groupSize);
-    if (!groupSize || !Number.isInteger(n) || n < 2) {
+    const min = minHeadcount(sessionType);
+    if (!groupSize || !Number.isInteger(n) || n < min) {
       return NextResponse.json(
-        { error: "Enter how many people (at least 2)." },
+        { error: `Enter how many people (at least ${min}).` },
         { status: 400 },
       );
     }

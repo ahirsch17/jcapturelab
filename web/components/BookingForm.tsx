@@ -6,6 +6,7 @@ import {
   heardFromOptions,
   isCustomSession,
   isEventSession,
+  minHeadcount,
   sessionNeedsHeadcount,
 } from "@/lib/booking";
 import {
@@ -78,10 +79,11 @@ export function BookingForm() {
   }, [status, message]);
 
   const needsHeadcount = sessionNeedsHeadcount(sessionType);
+  const headcountMin = minHeadcount(sessionType);
   const needsCustomDetails = isCustomSession(sessionType);
   const isEvent = isEventSession(sessionType);
   const notesPlaceholder = isEvent
-    ? "What kind of event? Birthday, team, club, etc."
+    ? "What kind of event, about how long, and what you want covered"
     : "Outfit ideas, accessibility, questions";
 
   function onSessionChange(value: string) {
@@ -118,8 +120,8 @@ export function BookingForm() {
     }
     if (needsHeadcount) {
       const n = Number(groupSize);
-      if (!groupSize.trim() || !Number.isInteger(n) || n < 2) {
-        return "Enter how many people (at least 2).";
+      if (!groupSize.trim() || !Number.isInteger(n) || n < headcountMin) {
+        return `Enter how many people (at least ${headcountMin}).`;
       }
     }
     return null;
@@ -253,19 +255,19 @@ export function BookingForm() {
       {needsHeadcount && (
         <div>
           <label htmlFor="groupSize" className="label">
-            How many people?
+            {isEvent ? "About how many people will be there?" : "How many people?"}
           </label>
           <input
             id="groupSize"
             type="number"
-            min={2}
+            min={headcountMin}
             max={99}
             required
             value={groupSize}
             onChange={(e) => setGroupSize(e.target.value)}
             className="input"
             inputMode="numeric"
-            placeholder="2"
+            placeholder={String(headcountMin)}
           />
         </div>
       )}

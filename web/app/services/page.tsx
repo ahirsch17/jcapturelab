@@ -5,10 +5,12 @@ import { PageBackdrop } from "@/components/PageBackdrop";
 import { backdropServices } from "@/lib/portfolio";
 import type { ServicePackage } from "@/lib/services";
 import {
+  duoPackages,
+  eventPackages,
   flexiblePackages,
-  gradPackages,
+  groupPackages,
+  individualPackages,
   portfolioPricingIntro,
-  promPackages,
   serviceAreasDisplay,
 } from "@/lib/services";
 
@@ -69,28 +71,64 @@ export default function ServicesPage() {
         </div>
 
         <p className="mt-6 text-sm leading-relaxed text-[var(--foreground-muted)] sm:text-base">
-          Grad and prom blocks get asked for a lot, so they are spelled out as examples with sample
-          pricing. Headshots, couples, events, or anything else uses the same request form and a
-          quote that fits what you need.
+          Prices follow how many people and how long, not the occasion. Grad, prom, headshots, and
+          couples all use the same list. Extra stops stay near the main spot, and that spot is
+          settled before the shoot.
         </p>
 
         <section className="mt-14">
           <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
-            Examples: grad
+            Individual
           </h2>
-          <PackageList items={gradPackages} />
+          <PackageList items={individualPackages} />
         </section>
 
         <section className="mt-16">
           <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
-            Examples: prom
+            Duo
           </h2>
-          <PackageList items={promPackages} />
+          <PackageList items={duoPackages} />
         </section>
 
         <section className="mt-16">
           <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
-            Everything else
+            Group
+          </h2>
+          <PackageList items={groupPackages} />
+        </section>
+
+        <section className="mt-16">
+          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
+            Event
+          </h2>
+          <PackageList items={eventPackages} />
+        </section>
+
+        <section className="mt-16">
+          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
+            Drive from Radford
+          </h2>
+          <div className="mt-8 rounded-2xl border border-black/10 bg-[var(--surface)] p-6 text-sm leading-relaxed text-[var(--foreground-muted)] shadow-sm sm:p-8">
+            <p>
+              Sessions start from Radford. A shoot in town, or in Blacksburg or Christiansburg, is
+              included. The add-on is only the trip out, and it stays small on purpose.
+            </p>
+            <ul className="mt-4 list-inside list-disc space-y-1">
+              <li>Within about 20 miles of Radford: included</li>
+              <li>About 20 to 40 miles, such as Roanoke: +$25</li>
+              <li>About 40 to 60 miles: +$40</li>
+              <li>Farther than that, including Martinsville: quoted before the date is held</li>
+            </ul>
+            <p className="mt-4">
+              Miles are from Radford to the main spot, not between the stops in a session. If a drive
+              looks longer than the band, the quote says so before you commit.
+            </p>
+          </div>
+        </section>
+
+        <section className="mt-16">
+          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
+            Something else
           </h2>
           <PackageList items={flexiblePackages} />
         </section>

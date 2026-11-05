@@ -14,80 +14,86 @@ export const serviceAreasDisplay =
 export const portfolioPricingIntro =
   "Freelance intro pricing. Social or gallery use of your photos only happens with your clear okay, settled before the shoot.";
 
-export const gradPackages: ServicePackage[] = [
+export const individualPackages: ServicePackage[] = [
   {
-    id: "grad-mini",
-    title: "Grad mini",
+    id: "individual-mini",
+    title: "Individual mini",
     blurb:
-      "Cap and gown or campus portraits in a tighter window. Good when you want the essentials.",
+      "One person, one stop. Grad, prom, a headshot, or a portrait when you want the essentials.",
     includes: [
-      "Duration: about 60 minutes",
-      "Locations: up to 2 nearby",
-      "People: solo graduate session",
-      "Delivery: edited highlight gallery",
+      "Time: about 45 minutes",
+      "Locations: 1, the spot you and I agree on beforehand",
+      "People: 1",
+      "Delivery: edited highlights",
     ],
     price: "From $75",
     rateNote: "Intro rate",
   },
   {
-    id: "grad-standard",
-    title: "Grad standard",
+    id: "individual-standard",
+    title: "Individual standard",
     blurb:
-      "More room for outfits, more stops, and a bigger set of edits than the mini.",
+      "More time for a second outfit or a second stop. Same idea: one person, planned before the day.",
     includes: [
-      "Duration: about 90 minutes",
-      "Locations: up to 4 nearby when drive time stays reasonable",
-      "People: solo graduate; quick shots with a friend fit if time allows",
-      "Looks: cap/gown plus casual outfit changes",
-      "Delivery: larger edited gallery",
+      "Time: about 90 minutes",
+      "Locations: up to 2, within about 10 miles of the main spot we agree on beforehand",
+      "People: 1",
+      "Delivery: edited highlights",
     ],
     price: "From $125",
     rateNote: "Intro rate",
   },
+];
+
+export const duoPackages: ServicePackage[] = [
   {
-    id: "grad-group",
-    title: "Grad group or friends",
-    blurb:
-      "Roommates, clubs, friends who want shared time on one calendar block.",
+    id: "duo",
+    title: "Duo",
+    blurb: "Two people. A couple, prom dates, or two friends who want the same block of time.",
     includes: [
-      "Duration: quoted after headcount (often around 90-120 minutes for small groups)",
-      "Locations: planned so nobody is chasing across town",
-      "People: small groups; larger sets priced after we talk headcount",
-      "Coverage: group shots plus individual frames",
-      "Rate split across the group",
+      "Time: about 60 minutes",
+      "Locations: up to 2, within about 10 miles of the main spot we agree on beforehand",
+      "People: 2",
+      "Delivery: edited highlights",
     ],
-    price: "From $175",
-    rateNote: "Intro rate, split by group",
+    price: "From $140",
+    rateNote: "Intro rate",
   },
 ];
 
-export const promPackages: ServicePackage[] = [
+export const groupPackages: ServicePackage[] = [
   {
-    id: "prom-solo",
-    title: "Prom solo",
+    id: "group",
+    title: "Group",
     blurb:
-      "Before the dance: outfit detail, portraits, and a simple location plan.",
+      "Roommates, a friend group, or a small team. One place, so the time goes to people instead of driving between stops.",
     includes: [
-      "Duration: about 45-60 minutes",
-      "Locations: 1 primary spot (plus a tight second nearby if time allows)",
-      "People: you, solo",
+      "Time: about 90 minutes",
+      "Locations: 1, the spot we agree on beforehand",
+      "People: 3 to 8. A bigger crowd is an event",
+      "Coverage: group frames, plus a short turn for individuals if time allows",
       "Delivery: edited highlights",
     ],
-    price: "From $85",
+    price: "From $175",
     rateNote: "Intro rate",
   },
+];
+
+export const eventPackages: ServicePackage[] = [
   {
-    id: "prom-couple",
-    title: "Prom couple or dates",
-    blurb: "You and your date with candids, posing, and detail shots.",
+    id: "event",
+    title: "Event",
+    blurb:
+      "One venue, priced by how long you need coverage. Headcount is how we pick the length, not a charge per person.",
     includes: [
-      "Duration: about 60 minutes",
-      "Locations: up to 2 nearby",
-      "People: 2 (you + date)",
-      "Delivery: edited highlights",
+      "About 1 hour: from $150",
+      "About 2 hours: from $275",
+      "Longer than 2 hours: quoted after you describe the event",
+      "Locations: 1 venue, agreed beforehand",
+      "Tell me the headcount and what you want covered before the date is held",
     ],
-    price: "From $130",
-    rateNote: "Intro rate",
+    price: "From $150",
+    rateNote: "By the hour",
   },
 ];
 
@@ -97,31 +103,25 @@ export const flexiblePackages: ServicePackage[] = [
     id: "custom-session",
     title: "Custom session",
     blurb:
-      "Headshots, couples, small events, branding-style portraits, creative ideas, or anything that is not a fit for the examples above. Same request form: describe what you want and I reply with timing and a quote.",
+      "A setup that does not fit the list above. Same request form: describe what you want and I reply with timing and a quote.",
     includes: [
       "Duration, locations, and headcount spelled out before you pay",
       "Quote based on what you describe in the request form",
       "Edited delivery matched to what we agree",
     ],
     price: "Quoted",
-    rateNote: "Starts from your request notes",
+    rateNote: "From the request",
   },
 ];
 
 export const sessionTypeGroupsForBooking = [
   {
-    label: "Graduation",
-    options: ["Grad mini", "Grad standard", "Grad group or friends"],
-  },
-  {
-    label: "Prom",
-    options: ["Prom solo", "Prom couple or dates"],
-  },
-  {
-    label: "Other",
+    label: "Sessions",
     options: [
-      "Headshots or branding",
-      "Couples or portraits",
+      "Individual mini",
+      "Individual standard",
+      "Duo",
+      "Group",
       "Event",
       "Custom session",
     ],

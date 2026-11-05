@@ -27,7 +27,7 @@ export default function Home() {
               Portraits and sessions across Southwest Virginia
             </h1>
             <p className="mt-3 text-sm leading-relaxed text-white/88 sm:text-base">
-              Grad, prom, couples, headshots, more. Send a request when you are ready.
+              Individuals, duos, groups, and small events. Send a request when you are ready.
             </p>
             <div className="mt-8 flex justify-center">
               <Link href="/book" className="btn-primary min-w-[200px]">
